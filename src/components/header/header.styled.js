@@ -18,18 +18,18 @@ export const TitleHeader = styled.h1`
 
 export const LinkImage = styled(Link)`
   background-image: url(${logo});
+  background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
-  width: 20%;
   height: 40px;
+  width: 20%;
 `;
 
 export const SearchBar = styled.input`
-  border: 1px solid transparent;
   border-radius: 4px;
-  padding: 2px 15px;
+  border: 1px solid transparent;
   padding-right: 32px;
+  padding: 2px 15px;
   width: 80%;
   z-index: 998;
 
@@ -41,21 +41,21 @@ export const SearchBar = styled.input`
 export const SearchButton = styled.button`
   background: 0;
   border: 1px solid transparent;
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  left: auto;
-  right: 2%;
   height: 27px;
+  left: auto;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 2%;
   width: 3%;
   z-index: 999;
 `;
 
 export const SearchIcon = styled.div`
-  z-index: 999;
   background-image: url(${searchImg});
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
   height: 50%;
+  z-index: 999;
 `;

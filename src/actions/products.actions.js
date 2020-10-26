@@ -13,7 +13,7 @@ import {
 import { buildUrl } from '../utils/callUtils';
 
 export const getProductsCall = (params) => {
-  return axios.get(buildUrl('search-products', params));
+  return axios.get(buildUrl('search-products', { ...params, limit: 4 }));
 };
 
 export const getProductsRequest = () => ({

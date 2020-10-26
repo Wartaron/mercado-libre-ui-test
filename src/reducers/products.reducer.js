@@ -1,3 +1,7 @@
+//vendors
+import { pathOr } from 'ramda';
+
+//constants
 import {
   GET_PRODUCTS_DATA_ERROR,
   GET_PRODUCTS_DATA_REQUEST,
@@ -32,7 +36,7 @@ const productsReducer = (state = initialState, action) => {
       nextState.loading = false;
       nextState.error = false;
       nextState.success = true;
-      nextState.data = action.payload.data;
+      nextState.data = pathOr([], ['results'], action.payload.data);
       break;
 
     case RESET_PRODUCTS_DATA:

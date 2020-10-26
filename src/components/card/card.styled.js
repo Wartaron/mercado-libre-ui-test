@@ -1,39 +1,31 @@
 import styled, { css } from 'styled-components';
 
+const SharedStyles = css`
+  color: #666666;
+`;
+
 export const StyledContainer = styled.div`
   margin: auto;
-  width: 500px;
-  height: 330px;
+  padding: 16px;
+  padding-bottom: 0;
+  width: auto;
+`;
 
-  & > * {
-    position: absolute;
-    bottom: 0;
-    width: inherit;
-  }
+export const StyledDivider = styled.div`
+  margin-top: 16px;
+  border-bottom: 1px solid #eeeeee;
+`;
 
-  ${(props) =>
-    props.isPrincipal
-      ? css`
-          background-color: rgba(0, 0, 0, 0.4);
-        `
-      : css`
-          background-image: url('${props.image}');
-          background-position: top;
-          background-repeat: no-repeat;
-          background-size: cover;
-        `}
+export const StyledImageContainer = styled.img`
+  height: 180px;
+  width: 180px;
+  border-radius: 4px;
+  margin-right: 16px;
 `;
 
 export const StyledInformationContainer = styled.div`
   padding: 30px;
   padding-bottom: 50px;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.0025386863729867093) 5%,
-    rgba(0, 0, 0, 1) 100%
-  );
 `;
 
 export const StyledCard = styled.div`
@@ -46,17 +38,33 @@ export const StyledParagraph = styled.p`
   text-align: left;
 `;
 
-export const PreTextOnPrincipalCard = styled.p`
-  font-size: 14px;
-  margin-bottom: 0;
-`;
-
 export const CardTitle = styled.h4`
-  font-size: 40px;
-  margin-bottom: 16px;
+  ${SharedStyles}
+  font-size: 18px;
 `;
 
-export const CardDescription = styled.p`
-  font-size: 18px;
-  font-weight: 100;
+export const CardPriceAndLocationContainer = styled.div`
+  ${SharedStyles}
+
+  align-items: center;
+  display: flex;
+  margin-bottom: 32px;
+
+  & > * {
+    margin: 0 16px 0 0;
+  }
+
+  & > :last-child {
+    position: absolute;
+    right: 20%;
+  }
+`;
+
+export const CardPrice = styled.p`
+  font-size: 24px;
+`;
+
+export const StyledFreeShipping = styled.img`
+  height: 24px;
+  width: 24px;
 `;

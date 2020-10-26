@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 //components
 import { Cards } from '../../components/cards/cards';
@@ -11,15 +12,27 @@ import { SectionContent } from '../App.styled';
 //actions
 import { getProductsByQuery } from '../../actions/products.actions';
 
-const mapStateToProps = (state) => ({
-  products: state.productsReducer.data,
-});
+//utils
+import { getSearchParams } from '../../utils/stringUtils';
+
+const mapStateToProps = (state, { location }) => {
+  return {
+    products: state.productsReducer.data,
+    query: getSearchParams(location.search),
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getProductsByQuery: bindActionCreators(getProductsByQuery, dispatch),
 });
 
 export class Content extends React.Component {
+  componentDidMount() {
+    const { getProductsByQuery, query } = this.props;
+
+    getProductsByQuery({ q: query.search });
+  }
+
   render() {
     const { products } = this.props;
 
@@ -33,4 +46,6 @@ export class Content extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Content);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Content)
+);

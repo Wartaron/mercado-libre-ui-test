@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
 
 //utils
 import { getTranslation } from '../../utils/translationsUtils';
@@ -32,10 +33,22 @@ class Header extends Component {
     };
   }
 
+  handleGetQuery = () => {
+    const { getProductsByQuery, history } = this.props;
+    const { searchParam } = this.state;
+
+    getProductsByQuery({ q: searchParam });
+    history.push(`/items?search=${searchParam}`);
+  };
+
   handleOnChange = (event) => {
     this.setState({
       searchParam: event.target.value,
     });
+  };
+
+  handleOnKeyDown = (event) => {
+    event.key === 'Enter' && this.handleGetQuery();
   };
 
   render() {
@@ -55,8 +68,9 @@ class Header extends Component {
             placeholder={getTranslation('header', 'searchBarPlaceHolder')}
             value={searchParam}
             onChange={this.handleOnChange}
+            onKeyDown={this.handleOnKeyDown}
           />
-          <SearchButton>
+          <SearchButton onClick={this.handleGetQuery}>
             <SearchIcon></SearchIcon>
           </SearchButton>
         </nav>
@@ -65,4 +79,4 @@ class Header extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default withRouter(connect(null, mapDispatchToProps)(Header));

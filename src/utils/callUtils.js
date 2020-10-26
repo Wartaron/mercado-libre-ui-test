@@ -26,7 +26,7 @@ export const buildUrl = (endpointKey, params = {}) => {
     }
   };
 
-  const { endpoint } = endpointsApiCall[endpointKey];
+  const endpoint = endpointsApiCall[endpointKey];
   if (!endpoint) return '#';
 
   let url =

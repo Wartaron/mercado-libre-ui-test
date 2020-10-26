@@ -6,4 +6,5 @@ export const AppContainer = styled.div`
 
 export const SectionContent = styled.div`
   background-color: #fff;
+  margin: 0 130px;
 `;

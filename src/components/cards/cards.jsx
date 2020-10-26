@@ -1,5 +1,6 @@
 //vendors
 import React, { Component } from 'react';
+import { isEmpty } from 'ramda';
 
 //components
 import Card from '../card/card';
@@ -13,15 +14,17 @@ export class Cards extends Component {
 
     return (
       <>
-        <div className="row">
-          {products.map((product, index) => {
-            return (
-              <div className="col-12 mb-4">
-                <Card product={product} key={index} />
-              </div>
-            );
-          })}
-        </div>
+        {!isEmpty(products) && (
+          <div className="row">
+            {products.map((product, index) => {
+              return (
+                <div className="col-12 mb-0">
+                  <Card product={product} key={index} />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </>
     );
   }
