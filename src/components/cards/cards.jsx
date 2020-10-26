@@ -5,9 +5,6 @@ import { isEmpty } from 'ramda';
 //components
 import Card from '../card/card';
 
-//utils
-import { getTranslation } from '../../utils/translationsUtils';
-
 export class Cards extends Component {
   render() {
     const { products } = this.props;

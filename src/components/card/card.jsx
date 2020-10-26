@@ -1,6 +1,7 @@
 //vendors
 import React, { Component } from 'react';
 import NumberFormat from 'react-number-format';
+import { withRouter } from 'react-router-dom';
 
 //styled components
 import {
@@ -18,10 +19,13 @@ import {
 //assets
 import freeShipping from '../../assets/ic_shipping.png';
 
-//utils
-import { getTranslation } from '../../utils/translationsUtils';
-
 export class Card extends Component {
+  handleOnClick = (id) => () => {
+    const { history } = this.props;
+
+    history.push(`/items/${id}`);
+  };
+
   render() {
     const {
       product: {
@@ -35,7 +39,7 @@ export class Card extends Component {
     } = this.props;
 
     return (
-      <StyledContainer>
+      <StyledContainer onClick={this.handleOnClick(id)}>
         <div className="row">
           <div className="col-2">
             <StyledImageContainer src={thumbnail} alt="product-image" />
@@ -68,4 +72,4 @@ export class Card extends Component {
   }
 }
 
-export default Card;
+export default withRouter(Card);

@@ -2,7 +2,8 @@ const baseApiCall = 'https://api.mercadolibre.com';
 
 const endpointsApiCall = {
   'search-products': 'sites/MLA/search',
-  'search-just-product': 'items',
+  'product-detail': 'items/:id',
+  'product-detail-description': 'items/:id/description',
 };
 
 //Function to query params

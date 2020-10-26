@@ -2,5 +2,10 @@
   "title": "Mercado Libre",
   "header": {
     "searchBarPlaceHolder": "Nunca dejes de buscar"
-  }  
+  },
+  "detailProduct": {
+    "sold": "Vendidos",
+    "buy": "Comprar",
+    "productDescription": "Descripción del producto"
+  }
 }
