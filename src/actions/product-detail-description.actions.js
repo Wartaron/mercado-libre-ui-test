@@ -24,7 +24,7 @@ export const getProductDetailDescError = () => ({
   type: GET_PRODUCT_DETAIL_DESC_DATA_ERROR,
 });
 
-export const resetProducts = () => ({
+export const resetProductDetailDesc = () => ({
   type: RESET_PRODUCT_DETAIL_DESC_DATA,
 });
 

@@ -15,12 +15,10 @@ import { getProductsByQuery } from '../../actions/products.actions';
 //utils
 import { getSearchParams } from '../../utils/stringUtils';
 
-const mapStateToProps = (state, { location }) => {
-  return {
-    products: state.productsReducer.data,
-    query: getSearchParams(location.search),
-  };
-};
+const mapStateToProps = (state, { location }) => ({
+  products: state.productsReducer.data,
+  query: getSearchParams(location.search),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getProductsByQuery: bindActionCreators(getProductsByQuery, dispatch),
@@ -37,8 +35,8 @@ export class Content extends React.Component {
     const { products } = this.props;
 
     return (
-      <div className="container mw-100 p-3">
-        <SectionContent className="mt-3">
+      <div className="container mw-100">
+        <SectionContent>
           <Cards products={products} />
         </SectionContent>
       </div>

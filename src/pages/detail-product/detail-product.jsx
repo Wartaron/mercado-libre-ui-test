@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 //actions
-import { getProductDetail } from '../../actions/product-detail.actions';
-import { getProductDetailDesc } from '../../actions/product-detail-description.actions';
+import {
+  getProductDetail,
+  resetProductDetail,
+} from '../../actions/product-detail.actions';
+import {
+  getProductDetailDesc,
+  resetProductDetailDesc,
+} from '../../actions/product-detail-description.actions';
 
 //utils
 import {
@@ -42,6 +48,8 @@ const mapStateToProps = (state, { match }) => {
 const mapDispatchToProps = (dispatch) => ({
   getProductDetail: bindActionCreators(getProductDetail, dispatch),
   getProductDetailDesc: bindActionCreators(getProductDetailDesc, dispatch),
+  resetProductDetail: bindActionCreators(resetProductDetail, dispatch),
+  resetProductDetailDesc: bindActionCreators(resetProductDetailDesc, dispatch),
 });
 
 export class DetailProduct extends React.Component {
@@ -50,6 +58,13 @@ export class DetailProduct extends React.Component {
 
     getProductDetail({ id });
     getProductDetailDesc({ id });
+  }
+
+  componentWillUnmount() {
+    const { resetProductDetail, resetProductDetailDesc } = this.props;
+
+    resetProductDetail();
+    resetProductDetailDesc();
   }
 
   render() {

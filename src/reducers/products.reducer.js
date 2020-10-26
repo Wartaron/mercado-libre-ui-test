@@ -14,6 +14,7 @@ const initialState = {
   loading: false,
   data: [],
   error: null,
+  breadcrumbInfo: [],
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -37,6 +38,7 @@ const productsReducer = (state = initialState, action) => {
       nextState.error = false;
       nextState.success = true;
       nextState.data = pathOr([], ['results'], action.payload.data);
+      nextState.breadcrumbInfo = pathOr([], ['filters'], action.payload.data);
       break;
 
     case RESET_PRODUCTS_DATA:

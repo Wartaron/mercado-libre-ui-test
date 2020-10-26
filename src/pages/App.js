@@ -9,11 +9,13 @@ import { AppContainer, SectionContent } from './App.styled';
 import Header from '../components/header/header';
 import Content from './content/content';
 import DetailProduct from './detail-product/detail-product';
+import Breadcrumb from '../components/breadcrumb/breadcrumb';
 
 export const App = () => {
   return (
     <AppContainer className="App">
       <Header />
+      <Breadcrumb />
       <section className="ajust-content text-white mt-6 mb-6">
         <Route exact path="/" />
         <Route exact path="/items" component={Content} />
