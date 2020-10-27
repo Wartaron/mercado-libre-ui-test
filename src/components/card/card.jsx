@@ -17,7 +17,7 @@ import {
 } from './card.styled';
 
 //assets
-import freeShipping from '../../assets/ic_shipping.png';
+import freeShippingIcon from '../../assets/ic_shipping.png';
 
 export class Card extends Component {
   handleOnClick = (id) => () => {
@@ -40,11 +40,11 @@ export class Card extends Component {
 
     return (
       <StyledContainer onClick={this.handleOnClick(id)}>
-        <div className="row">
-          <div className="col-2">
+        <div className="row" id="card-content">
+          <div className="col-2" id="product-image-section">
             <StyledImageContainer src={thumbnail} alt="product-image" />
           </div>
-          <div className="col-10">
+          <div className="col-10" id="product-info-section">
             <StyledInformationContainer>
               <StyledCard>
                 <CardPriceAndLocationContainer>
@@ -58,7 +58,12 @@ export class Card extends Component {
                       />
                     </CardPrice>
                   )}
-                  {free_shipping && <StyledFreeShipping src={freeShipping} />}
+                  {free_shipping && (
+                    <StyledFreeShipping
+                      src={freeShippingIcon}
+                      id="free-shipping"
+                    />
+                  )}
                   <p>{state_name}</p>
                 </CardPriceAndLocationContainer>
                 <CardTitle>{title}</CardTitle>

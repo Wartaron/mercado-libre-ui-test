@@ -1,11 +1,26 @@
+//vendors
+import React from 'react';
 import { shallow } from 'enzyme';
-import Content from '../content';
+
+//component
+import { Content } from '../content';
+import Cards from '../../../components/cards/cards';
+
+const mockText = 'Some Text';
+let props;
 
 describe('Content', () => {
-  it('should render correctly', () => {
-    const content = shallow(<Content />);
+  beforeEach(() => {
+    props = {
+      products: [],
+      query: { search: mockText },
+      getProductsByQuery: jest.fn(),
+    };
+  });
 
-    expect(content.find('PrincipalContent')).toHaveLength(1);
-    expect(content.find('SecondaryContent')).toHaveLength(1);
+  it('should render correctly', () => {
+    const content = shallow(<Content {...props} />);
+
+    expect(content.find(Cards)).toHaveLength(1);
   });
 });

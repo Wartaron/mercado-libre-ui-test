@@ -11,10 +11,10 @@ import { getTranslation } from '../../utils/translationsUtils';
 import {
   LinkImage,
   SearchBar,
+  SearchButton,
+  SearchIcon,
   StyledHeader,
   TitleHeader,
-  SearchIcon,
-  SearchButton,
 } from './header.styled';
 
 //actions
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   getProductsByQuery: bindActionCreators(getProductsByQuery, dispatch),
 });
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
 

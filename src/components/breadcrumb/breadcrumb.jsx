@@ -9,7 +9,7 @@ import { getBreadcrumbConfig } from '../../utils/breadcrumbUtils';
 //styled components
 import { BreadcrumbContainer } from './breadcrumb.styled';
 
-const mapStateToProps = (state, { location }) => ({
+const mapStateToProps = (state) => ({
   breadcrumbInfo: state.productsReducer.breadcrumbInfo,
 });
 
